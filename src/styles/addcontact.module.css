@@ -1,0 +1,54 @@
+.linkbar{
+    display: flex;
+    justify-content: end;
+}
+
+.nav{
+    display: flex;
+    font-size: larger;
+    font-weight: bold;
+    height: 10vh;
+    width: 22vh;
+    border-radius:20px;
+    background-color: rgb(234, 236, 236);
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    justify-content: center;
+}
+.formgroup{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.label{
+    margin-bottom: 10px;
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(118, 182, 103);
+}
+
+.title{
+    justify-self: center;
+    font-weight: bold;
+    color: rgb(118, 182, 103);
+}
+.input{
+    height: 8vh;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.addbutton{
+    justify-self: center;
+    height: 8vh;
+    width: 15vh;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.currentview{
+    color: rgb(118, 182, 103);
+}

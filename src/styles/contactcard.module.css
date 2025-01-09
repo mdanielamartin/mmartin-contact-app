@@ -1,0 +1,35 @@
+.card{
+    border: solid saddlebrown;
+    border-radius: 15px;
+    background-color:rgba(245, 245, 245, 0.205);
+}
+
+.profileImg {
+    border-radius: 50%;
+    height: 150px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(118, 182, 103,205);
+}
+
+.title {
+    font-size:xx-large;
+    font-weight: bold;
+    color: rgb(118, 182, 103);
+}
+
+.info{
+    font-size: larger;
+}
+
+.actions{
+    position: relative;
+    font-size: x-large;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.buttons {
+    background-color: transparent;
+    border: none;
+}
