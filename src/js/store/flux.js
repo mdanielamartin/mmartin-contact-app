@@ -136,6 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						throw new Error(registration.detail)
 					}
 					setStore({ ...store, user: registration });
+					alert(`Agenda for ${username} created successfully`)
 				} catch (error) {
 					alert(`Something went wrong, ${error}`)
 					console.error(`Something went wrong, ${error}`)
@@ -150,10 +151,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${username}`, {
 						method: 'DELETE'
 					})
+
 					if (!response.ok) {
 						throw new Error(response.statusText)
 					}
-					setStore({ ...store, user: { slug: '', id: '', status: false }, contacts: [] });
+					if (store.user.slug === username) {
+						setStore({ ...store, user: { slug: '', id: '', status: false }, contacts: [] });
+					}
+
+					alert(`${username}'s agenda has been deleted`)
 				} catch (error) {
 					alert(`Something went wrong, ${error}`)
 					console.error(`Something went wrong, ${error}`)

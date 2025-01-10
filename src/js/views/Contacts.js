@@ -20,8 +20,8 @@ const Contacts = () => {
 				<div className="row d-flex justify-content-center align-items-center">
 					<div className="col-lg-5 col-sm-12 d-flex">
 						<input type="text" className={`form-control me-1`} placeholder="Enter agenda to create or delete" onChange={(e) => { setUser(e.target.value) }} />
-						<button className={`btn btn-success mx-1`} onClick={() => { actions.createUserAgenda(user) }}>New Agenda</button>
-						<button className={`btn btn-danger mx-1`} onClick={() => { actions.deleteUserAgenda(user) }}>Delete Agenda</button>
+						<button className={`btn btn-success mx-1`} disabled={user === ''} onClick={() => { actions.createUserAgenda(user) }}>New Agenda</button>
+						<button className={`btn btn-danger mx-1`} disabled={user === ''} onClick={() => { actions.deleteUserAgenda(user) }}>Delete Agenda</button>
 					</div>
 					<div className="dropdown col-lg-6 col-sm-12">
 						<button className="btn btn-light dropdown-toggle w-100 py-3" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,7 +36,7 @@ const Contacts = () => {
 						</ul>
 					</div>
 					<div className="col-lg-1 col-sm-12 d-flex justify-content-center">
-						<Link to="/addcontact" className={`btn btn-success`}>Add Contact</Link>
+						<button type="button" className={`btn btn-success`} disabled={store.user.slug === ''}><Link to="/addcontact" className='text-white text-decoration-none'>Add Contact</Link></button>
 					</div>
 				</div>
 
