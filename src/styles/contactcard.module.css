@@ -1,17 +1,22 @@
 .card{
-    border: solid saddlebrown;
     border-radius: 15px;
     background-color:rgba(245, 245, 245, 0.205);
 }
 
-.profileImg {
-    border-radius: 50%;
-    height: 150px;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid rgba(118, 182, 103,205);
-}
 
+
+.profile {
+    width: 22%;
+    height: auto;
+
+}
+.profileImg {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    border: 3px solid rgba(118, 182, 103,205);
+}
 .title {
     font-size:xx-large;
     font-weight: bold;
@@ -26,7 +31,6 @@
     position: relative;
     font-size: x-large;
     margin-left: auto;
-    margin-right: 50px;
 }
 
 .buttons {

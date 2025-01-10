@@ -68,9 +68,32 @@ const AddContact = () => {
                 </div>
                 <div className={`py-4 ${styles.buttons}`}>
                     <button className={`btn btn-danger ${styles.addbutton} mx-2`} onClick={handleCancel}>Cancel</button>
-                    {editMode ? <button type="submit" className={`btn btn-primary ${styles.addbutton} mx-2`} disabled={!editDone} onClick={(e) => handleEdit(e)} >Edit</button> : <button type="submit" className={`btn btn-success ${styles.addbutton} mx-2`} disabled={!editDone} onClick={(e) => handleSubmit(e)} >Submit</button>}
+                    {editMode ? <button type="button" className={`btn btn-primary ${styles.addbutton} mx-2`} disabled={!editDone} data-bs-toggle='modal' data-bs-target='#submitconfirm' >Edit</button> :
+                        <button type="button" className={`btn btn-success ${styles.addbutton} mx-2`} disabled={!editDone} data-bs-toggle='modal' data-bs-target='#submitconfirm'
+                        >Submit</button>}
+                </div>
+                <div className="modal fade" id="submitconfirm" tabIndex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h1 className="modal-title fs-5" id="exampleModalLabel">Confirm Your Changes</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                {editMode ? 'Would you like to save this edit?' : 'Would you like to save this contact?'}
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                {editMode ? <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={(e) => handleEdit(e)}>Save</button> :
+                                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={(e) => handleSubmit(e)}>Save</button>}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form >
+
+
+
         </div >
     );
 };

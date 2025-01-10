@@ -1,34 +1,21 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			contacts: [
-				{
-					name: "Don Chipi",
-					phone: "(039)-343-3232",
-					address: 'Segunda Parcela',
-					email: "donchipi@outlook.com",
-					id: 0
-				},
-				{
-					name: "Mr. Cuchi",
-					phone: "(043)-354-4234",
-					address: 'Venezuela',
-					email: "soycuchi@outlook.com",
-					id: 2
-				}
-			],
-
+			contacts: [],
 			agendas: [],
-
 			user: { slug: '', id: '', status: false },
-
 			toEdit: {},
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			emptyAgendaList: () => {
+				const store = getStore();
+				if (store.agendas.length === 0) {
+					return true
+				}
+				return false
 			},
+
 			getAgendaList: async () => {
 				const store = getStore();
 				try {
@@ -57,6 +44,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(`Something went wrong, ${error}`)
 
 				}
+			},
+
+			emptyAgenda: () => {
+				const store = getStore();
+				if (store.contacts.length === 0) {
+					return true
+				}
+				return false
 			},
 
 			selectAgenda: async (e) => {
@@ -151,10 +146,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteUserAgenda: async (username) => {
 				const store = getStore();
-
-				if (username === '') {
-					username = store.user.slug;
-				}
 				try {
 					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${username}`, {
 						method: 'DELETE'
